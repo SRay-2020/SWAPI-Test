@@ -34,6 +34,11 @@ function writeToDocument(type) {
 
     el.innerHTML = "";
     getData(type, function (data) {
+
+
+        if (data.next || data.previous)
+
+        
         data = data.results;
 
         var tableHeaders = getTableHeaders(data[0]);
@@ -47,7 +52,7 @@ function writeToDocument(type) {
                 var rowData = item[key].toString();
                 var truncatedData = rowData.substring(0, 15)
                 dataRow.push(`<td>${truncatedData}</td>`);
-                
+
             });
             tableRows.push(`<tr>${dataRow}</tr>`);
         });
